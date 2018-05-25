@@ -1,0 +1,151 @@
+@function px2rem($px, $base-font-size: 75px) {
+  @if (unitless($px)) {     //返回这个数是否没有单位    没有单位添加单位 再重调
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2rem($px + 0px); // That may fail.
+  } @else if (unit($px) == rem) {     //获得单位  单位是rem 就直接返回
+    @return $px;
+  }
+  @return ($px / $base-font-size) * 1rem;
+}
+
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+
+
+@mixin top-1px($color: #e5e5e5){
+  position: relative;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid $color;
+    color: $color;
+    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.33);
+      transform: scaleY(0.33);
+    }
+  }
+}
+
+@mixin bottom-1px($color: #e5e5e5) {
+  position: relative;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid $color;
+    color: $color;
+
+    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.33);
+      transform: scaleY(0.33);
+    }
+
+  }
+}
+
+@mixin left-1px($color: #e5e5e5) {
+  position: relative;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid $color;
+    color: $color;
+    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.33);
+      transform: scaleY(0.33);
+    }
+  }
+}
+
+@mixin right-1px($color: #e5e5e5) {
+  position: relative;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid $color;
+    color: $color;
+    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.33);
+      transform: scaleY(0.33);
+    }
+  }
+}
+
+@mixin border-1px($color: #e5e5e5){
+  position: relative;
+
+  &:after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid $color;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+  }
+}
