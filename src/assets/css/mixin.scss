@@ -1,14 +1,14 @@
 @function px2rem($px, $base-font-size: 75px) {
-  @if (unitless($px)) {     //返回这个数是否没有单位    没有单位添加单位 再重调
+  @if (unitless($px)) { //返回这个数是否没有单位    没有单位添加单位 再重调
     @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
     @return px2rem($px + 0px); // That may fail.
-  } @else if (unit($px) == rem) {     //获得单位  单位是rem 就直接返回
+  } @else if (unit($px) == rem) { //获得单位  单位是rem 就直接返回
     @return $px;
   }
   @return ($px / $base-font-size) * 1rem;
 }
 
-@mixin font-dpr($font-size){
+@mixin font-dpr($font-size) {
   font-size: $font-size;
 
   [data-dpr="2"] & {
@@ -20,8 +20,7 @@
   }
 }
 
-
-@mixin top-1px($color: #e5e5e5){
+@mixin top-1px($color: #e5e5e5) {
   position: relative;
 
   &:before {
@@ -33,13 +32,13 @@
     height: 1px;
     border-top: 1px solid $color;
     color: $color;
-    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5);
     }
-    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.33);
@@ -61,13 +60,13 @@
     border-bottom: 1px solid $color;
     color: $color;
 
-    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5);
     }
-    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.33);
@@ -89,13 +88,13 @@
     bottom: 0;
     border-right: 1px solid $color;
     color: $color;
-    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5);
     }
-    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.33);
@@ -116,13 +115,13 @@
     bottom: 0;
     border-right: 1px solid $color;
     color: $color;
-    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5);
     }
-    @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
       -webkit-transform: scaleY(0.33);
@@ -131,7 +130,7 @@
   }
 }
 
-@mixin border-1px($color: #e5e5e5){
+@mixin border-1px($color: #e5e5e5) {
   position: relative;
 
   &:after {
@@ -149,3 +148,126 @@
     box-sizing: border-box;
   }
 }
+
+/*
+项目名称：一卡通
+开发周期：2018年4月—2018年5月
+开发工具：WebStorm
+责任描述：
+主要负责页面的布局、页面编写和数据渲染，完成与后端的接口对接，配合后端的对接联调，并且完成微信端腾讯智慧校园的嵌套。
+项目简介：
+项目是vue+webpack构建的单页面应用，采用了vue-route、vuex、axios以及ES6语法，采用组件化思想搭建
+整个项目，从而使组件高度复用，代码十分简洁。其中UI使用了vux部分组件，better-scroll作为页面滚动
+及上拉加载下拉刷新，vue-lazyload图片懒加载，echarts图表等。首页采用CDN加载资源，路由使用懒加载
+，减小首次加载资源，提高首屏打开速度。
+项目架构：
+1.使用vue框架，以及vue-router构建单页面应用。
+2.使用vue+webpack构建项目环境。
+3.采用淘宝Flexible布局实现终端适配。
+4.使用阿里矢量图标库。
+调试和测试工具：
+1、Vconsole
+2、postman
+3、mock.js
+4、抓包软件
+访问地址：http://host805072316.s506.pppf.com.cn或qxw1192750076.my3w.com
+gitHub: https://github.com/notTooLate/interview
+
+
+项目名称：电子班牌
+开发周期：2017年12月—2018年2月
+开发工具：WebStorm
+责任描述：
+主要负责页面的布局、页面编写和数据渲染，完成与后端的接口对接，配合后端的对接联调，并且配合Android完成页面的嵌套。
+项目简介：
+项目是vue+webpack构建的单页面应用，采用了vuex、vue-route、axios以及ES6语法，采用组件化思想搭建整个项目，从而使组件高度复用，代码十分简洁，
+其中涉及swiper触控滑动模块，better-scroll上拉加载下拉刷新，vue-lazyload图片懒加载，路由懒加载等，减小首次加载资源大小，减少图片请求次数，
+和提高用户体验度。
+项目架构：
+1.使用vue框架，以及vue-router构建单页面应用。
+2.使用vue+webpack构建项目环境。
+3.采用rem布局。
+4.使用阿里矢量图标库。
+调试和测试工具：
+1、Vconsole
+2、postman
+3、mock.js
+4、抓包软件
+
+
+项目名称：云建工后台改版（PC端）
+开发周期：2017.03—2017.05
+开发工具：WebStorm
+技术架构：HTML5、CSS3、Bootstrap、ECharts、AngularJs 1.x。
+项目描述：
+	1、将原后台（Esya ui）用AngularJs+ Bootstrap进行重构的单页后台管理平台。
+	2、项目中前后端分离，所有数据采用services调用接口获得。
+  3、封装了模态框、面包屑导航、table等常用自定义指令。
+责任描述：
+1、负责项目的搭建，包括：页面+router+controller+services。
+2、进行接口调试，对返回的数据进行过滤展示。
+3、对页面在各主流浏览器中的兼容性的调整。
+4、优化页面性能，缩减页面体积。
+
+项目名称：云建工项目部app 2.0 （手机端）
+开发周期：2016.10—2017.01
+开发工具：WebStorm
+技术架构：HTML5、CSS3、AngularJs、Ionic。
+项目描述：
+1、基于Ionic + cordova 构建的跨平台手机App。
+2、项目中前后端分离，所有数据采用services调用接口获得。
+3、App包含：合同查阅、考勤管理、现场事项、批次验收、批次结算、班组评价、物资管理、消息通知等八大功能模块，能方便项目部对班组人员的管理，
+对施工现场的实时把控，对工地材料使用情况的查询。
+责任描述：
+1、按设计图实现页面，进行接口调试，并展示数据。
+2、将代码打包成apk安装包。
+3、优化运行速度，缩减整体体积。
+4、app上线后，根据用户反应修改和添加功能，bug修护等后期维护。
+
+
+
+
+2017/09 -- 至今       湖南大洋软件技术有限公司      web前端开发工程师
+工作描述：
+主要负责公司前端工作。
+参与或负责项目：
+开学吧APP(android中H5模块)、电子班牌(android中H5模块)、智慧校园管理后台(vue+element)、智慧校园门户网站、智慧校园微信版(vue+vux)，及一些
+老项目样式修改、换肤等。
+
+
+2016.05— 2017.06
+云建工信息科技有限公司	         web前端程序员
+1、参与手机app页面编写，接口调试，数据处理，上线维护及修改。
+2、负责云建工管理平台改版。
+3、性能优化、兼容性调整。
+
+2015.04-2016.01
+湖南汇亚电子科技有限公司        	 	 web前端程序员
+编写静态页面。
+
+2009.09-2014.11 95774部队        	 	 				 现场飞参判读员
+分析飞行参数，判断飞行员空中是否有违规操作。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

@@ -13,27 +13,33 @@
     <b-scroll class="m-wrapper">
       <ul class="m-list">
         <li class="m-item" v-for="(item,index) in contentList" :key="index">
-          <img v-lazy="item.picPath">
+          <!--<img v-lazy="item.picPath" @click="bigPhoto(item.picSrc)">-->
+          <img v-lazy="item.picPath" @click="bigPhoto('http://img05.tooopen.com/images/20140328/sy_57865838889.jpg')">
           <span>{{item.date | today}}</span>
           <span>{{item.time}}</span>
           <em :class="{'item-active': item.attendanceType === 1}">{{item.attendanceType | turnoverType}}</em>
         </li>
       </ul>
     </b-scroll>
+
+    <big-photo  :popState="popState" :bigUrl="bigUrl" @closeImg = "closeImg"></big-photo>
   </div>
 </template>
 
 <script>
   import DY from '../../../assets/js/dy'
   import BScroll from '../../common/b-scroll'
+  import BigPhoto from '../../common/big-photo'
 
   export default {
-    components: {BScroll},
+    components: {BScroll,BigPhoto},
     data() {
       return {
         smg: '出入记录',
         current: window.current,   //当前日期
-        contentList: []
+        contentList: [],
+        popState: false,   //大图状态
+        bigUrl: ''
       }
     },
     created() {
@@ -66,7 +72,15 @@
             vm.current = val;
           }
         })
-      }
+      },
+      closeImg(data){
+        //console.log(data);
+        this.popState = data;
+      },
+      bigPhoto(url) {
+        this.popState = true;
+        this.bigUrl = url;
+      },
     },
     mounted() {
 
