@@ -10,7 +10,7 @@ import {ToastPlugin, LoadingPlugin} from 'vux'
 Vue.use(ToastPlugin);
 Vue.use(LoadingPlugin);
 
-console.log('<<<<>>>>>',process.env);
+console.log('<<<<>>>>>', process.env);
 let BASE_API = 'https://easy-mock.com/mock/5ae43c473ed818654bc27fdf';
 // let BASE_API = '';
 // let BASE_API = '';
@@ -52,11 +52,7 @@ const DY = {
     window.current = year + '-' + month;
 
     function zeroFill(i) {
-      if (i >= 0 && i <= 9) {
-        return "0" + i;
-      } else {
-        return i;
-      }
+      return i < 10 ? '0' + i : i;
     }
   },
   toast(cont, type) {  // 吐司， 弹出一个弹出，1.2秒消失

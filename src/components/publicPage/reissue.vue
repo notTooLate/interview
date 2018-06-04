@@ -10,7 +10,7 @@
         <p class="m-cause">补卡原因：</p>
         <!--<textarea class="m-text" rows="5" placeholder="请输入" v-model="cause"></textarea>-->
         <group gutter="0">
-          <x-textarea :max="50" placeholder="请输入补卡原因" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></x-textarea>
+          <x-textarea :max="50" v-model="cause" placeholder="请输入补卡原因" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></x-textarea>
         </group>
       </div>
     </div>

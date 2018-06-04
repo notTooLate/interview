@@ -13,14 +13,6 @@ export default new VueRouter({
       path: '*',
       redirect: '/teachHome',
     },
-    {
-      path: '/index',
-      name: 'index',
-      meta: {
-        title: 'bscroll上下拉'
-      },
-      component: resolve => require(['@/components/index'], resolve),
-    },
     /*********************** 教师端 ***********************/
     {
       path: '/teachHome',

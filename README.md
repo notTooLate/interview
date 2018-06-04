@@ -32,9 +32,12 @@ npm run build --report
 4.使用阿里矢量图标库。
 
 调试和测试工具：
-1、postman
-2、mock.js
-3、Fiddler 2
+1、vconsole
+2、postman
+3、mock.js
+4、Fiddler 2
 
 ```
+ps:此项目所有请求均为easy-mock上的模拟数据。
+
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

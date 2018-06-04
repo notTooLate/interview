@@ -7,10 +7,8 @@ import store from './store/store'
 import './vux'
 import filter from './filters/filter'
 
-// import './mock' // 引入的是我们所编写的mockjs文档
-
-//手机端调试
-//import vconsole from 'vconsole';
+import './util/mock' // 引入的是mockjs接口文档
+import './util/vconsole' // 手机端调试工具
 
 //图片懒加载
 import VueLazyLoad from 'vue-lazyload'

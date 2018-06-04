@@ -4,8 +4,8 @@
     <m-head :title="$route.meta.title"></m-head>
 
     <transition :name="hasKeep">
-      <!--<keep-alive>-->
-      <router-view class="m-router"/>
+      <!--<keep-alive include="teachCheck">-->
+        <router-view class="m-router"/>
       <!--</keep-alive>-->
     </transition>
 
@@ -32,7 +32,6 @@
 
       let reg = new RegExp("(^|&)" + 'userid' + "=([^&]*)(&|$)", "i");
       let str = url.match(reg);
-      console.log('身份', str);
       if (str) {
         //判断是否是管理员
         DY.post('/wcsApp/index/getUser?userId=3YB9AG1lk4wdone&objectId=mecupxmasjune3dgodone', {}, (data) => {

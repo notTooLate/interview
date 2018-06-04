@@ -38,6 +38,7 @@
   import CheckList from '../../common/check-list'
 
   export default {
+    name: 'teachCheck',
     components:{BScroll,CheckList},
     data() {
       return {

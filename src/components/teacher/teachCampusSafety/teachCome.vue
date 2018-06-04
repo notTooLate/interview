@@ -65,7 +65,7 @@
         console.log('下拉刷新');
       },
       loadData() {
-        console.log('上下拉出发事件');
+        console.log('上拉加载事件');
         this.sum += 10;
         this.getData();
       },
